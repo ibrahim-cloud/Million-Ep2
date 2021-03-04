@@ -84,6 +84,7 @@ export default class ValidUser extends Component {
 
             axios.put("http://localhost:1099/admin/valid/"+id,data,config)
             .then(
+                
                 res=> {
                     console.log(res)
                    
@@ -97,6 +98,9 @@ export default class ValidUser extends Component {
             
         }
         return (
+             
+                
+            
 
            
 		
@@ -129,15 +133,16 @@ export default class ValidUser extends Component {
                                 <table  className="table table-bordered" id="doctors" width="100%" >
                                 <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-      <th scope="col">Handle</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Age</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Statut </th>
+      <th scope="col">Valid participant</th>
     </tr>
   </thead>
   <tbody id="List">
+      
 
 {posts.length ?
 
@@ -151,7 +156,7 @@ posts.map(post =>  <tr key={post._id}>
         <td>{post.email}</td>
         <td>{post.age}</td>
         <td>{post.phone}</td>
-        <td>{post.online}</td>
+        <td>{`${post.is_valid}`}</td>
         <td><button onClick ={ ()=> update(post._id)} type="submit" className="btn btn-primary btn-block">Valid participant</button>
 </td>
     
@@ -167,7 +172,6 @@ posts.map(post =>  <tr key={post._id}>
                      </div>
                  </div>
                 
-                 <button onClick ={this.handleClick } type="submit" className="btn btn-primary btn-block">Sign Up</button>
 
              </div>
              </main>

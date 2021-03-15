@@ -15,6 +15,9 @@ import AddQuestion from "./components/AddQuestion";
 import AddAdmin from "./components/addAdmin";
 import validationUser from "./components/validationUser";
 
+import Game from "./components/Game";
+import Winer from "./components/winner";
+
 
 function App() {
   return (<Router>
@@ -36,6 +39,8 @@ function App() {
 
     
           <Switch>
+          <Route path="/winer" render={(props) => <Winer {...props}/>}/>
+          <Route path="/game" component={Game}/>
        <Route path="/validationUser" component={validationUser} />
           <Route path="/AddAdmin" component={AddAdmin} />
             <Route path="/AdminLogin" component={AdminLogin} />

@@ -12,7 +12,9 @@ export default class LoginAdmin extends Component {
             res=> {
                 console.log(res.data.token)
                 localStorage.setItem('token',res.data.token);
-                window.location.assign("http://localhost:3000/choixGadmin")
+                
+                setTimeout(function(){window.location.assign("http://localhost:3000/choixGadmin");  }, 3000);
+
             }
         ).catch(
             err=>{

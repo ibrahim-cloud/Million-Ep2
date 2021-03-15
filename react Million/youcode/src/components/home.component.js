@@ -18,6 +18,8 @@ export default class home extends Component {
         axios.post('http://localhost:1099/participant/create',data ,config).then(
             res=> {
                 console.log(res)
+                // window.location.assign("http://localhost:3000/StartGame")
+
             }
         ).catch(
             err=>{

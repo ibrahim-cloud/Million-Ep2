@@ -18,7 +18,11 @@ export default class JoinGroup extends Component {
         }
         axios.post('http://localhost:1099/participant/join/',data ,config).then(
             res=> {
-                console.log(res)
+                console.log(res.data)
+                localStorage.setItem('group',res.data);
+                window.location.assign("http://localhost:3000/game")
+
+
             }
         ).catch(
             err=>{

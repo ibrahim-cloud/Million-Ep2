@@ -9,7 +9,7 @@ export default class ValidUser extends Component {
 		super(props)
 
 		this.state = {
-      posts: [],
+      Users: [],
       errorMsg: ''
 		}
 	}
@@ -21,57 +21,16 @@ export default class ValidUser extends Component {
         axios.get("http://localhost:1099/admin/user")
 			.then(response => {
 				console.log(response)
-				this.setState({ posts: response.data })
+				this.setState({ Users: response.data })
 			})
 			.catch(error => {
         console.log(error)
         this.setState({errorMsg: 'Error retrieving data'})
 			})
 	}
-
-        
-  
-     
-    // handleSubmit=e=>{
-   
-        
-    //     // const data = {
-    //     //   is_valid:this.is_valid
-       
-     
-    //   console.log('ffffff')
-   
-    //     // }
-    //     var row="";
-    //     axios.get("http://localhost:1099/admin/user").then(
-    //         res=> {  
-    //             for (let i = 0; i < res.data.length; i++) {
-    //                 if(!res.data[i].is_valid){
-                      
-                  
-                     
-                    
-    //                 document.getElementById("List").innerHTML += "<a onclik="console.log('HAHhHAhAHahH')
-    //                           ">cccc </a>";}else{
-    //                 }
-    //             }
-    //             console.log(res.data )
-    //             // window.location.assign("http://localhost:3000/sign-in")
-               
-    //         }
-    //     ).catch(
-    //         err=>{
-    //             console.log(err);
-    //         }
-    //     )
-
-   
-    
-    // }
-   
    
     render() {
-         const { posts, errorMsg } = this.state;
+         const { Users, errorMsg } = this.state;
          function update(id) {
             const config ={
                 headers:{
@@ -98,20 +57,6 @@ export default class ValidUser extends Component {
             
         }
         return (
-             
-                
-            
-
-           
-		
-		// 	<div>
-		// 		List of posts
-		// 		{posts.length
-		// 			? posts.map(post => <div key={post._id}>{post.full_name}</div>)
-        //   : null}
-        // {errorMsg ? <div>{errorMsg}</div> : null}
-		// 	</div>
-		// );
             <div className="auth-wrapper"> 
         
             <div className="auth-inner1">
@@ -144,20 +89,20 @@ export default class ValidUser extends Component {
   <tbody id="List">
       
 
-{posts.length ?
+{Users.length ?
 
 
 
 
-posts.map(post =>  <tr key={post._id}>
+Users.map(User =>  <tr key={User._id}>
 
         
-        <td>{post.full_name}</td> 
-        <td>{post.email}</td>
-        <td>{post.age}</td>
-        <td>{post.phone}</td>
-        <td>{`${post.is_valid}`}</td>
-        <td><button onClick ={ ()=> update(post._id)} type="submit" className="btn btn-primary btn-block">Valid participant</button>
+        <td>{User.full_name}</td> 
+        <td>{User.email}</td>
+        <td>{User.age}</td>
+        <td>{User.phone}</td>
+        <td>{`${User.is_valid}`}</td>
+        <td><button onClick ={ ()=> update(User._id)} type="submit" className="btn btn-primary btn-block">Valid participant</button>
 </td>
     
     
